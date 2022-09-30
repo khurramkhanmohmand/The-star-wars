@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-film-details',
@@ -11,13 +11,18 @@ import { DataService } from 'src/app/services/data.service';
 export class FilmDetailsComponent implements OnInit {
   public _filmDetail!: Observable<any>;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {
-  }
+  constructor(
+    private dataService: DataService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this._filmDetail = this.route.params
-      .pipe(
-        switchMap((params: any) => this.dataService.getFilmsDetail(+params['id']))
-      );
+    this._filmDetail = this.route.params.pipe(
+      switchMap((params: any) => this.dataService.getFilmsDetail(+params['id']))
+    );
+  }
+
+  public setHeader(): void {
+    this.dataService.isHeader = true;
   }
 }

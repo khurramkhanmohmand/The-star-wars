@@ -1,5 +1,5 @@
 <div class="main-box">
-  <div class="row" *ngIf="(_filmDetail | async) as filmDetail">
+  <div class="row" *ngIf="_filmDetail | async as filmDetail">
     <div class="col-md-12">
       <p><strong>Title:</strong> {{ filmDetail?.title }}</p>
       <p><strong>Episode:</strong> {{ filmDetail?.episode_id }}</p>
@@ -11,5 +11,7 @@
 </div>
 
 <div class="back">
-  <button class="btn-back" [routerLink]="['/films']">Back</button>
+  <button class="btn-back" [routerLink]="['/films']" (click)="setHeader()">
+    Back
+  </button>
 </div>

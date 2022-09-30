@@ -1,23 +1,27 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { debounceTime, fromEvent } from 'rxjs';
 import { distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('search') _search!: ElementRef;
 
   public seaches: string[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     if (!this._search) return;
@@ -35,5 +39,4 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public navigate(keyword: string): void {
     this.dataService.search(keyword, false).subscribe();
   }
-
 }

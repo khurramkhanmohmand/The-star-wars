@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PeopleHeightPipe } from 'src/app/pipes/people-height.pipe';
+import { PeopleHeightPipe } from '../../pipes/people-height.pipe';
 import { PeopleDetailComponent } from './people-detail/people-detail.component';
 import { PeopleListComponent } from './people-list/people-list.component';
 

@@ -11,7 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class PeopleDetailComponent implements OnInit {
   sub: any;
-  id: any;;
+  id: any;
 
   private getPeopleDetail!: Observable<any>;
   public _peopleDetail!: Observable<any>;
@@ -26,11 +26,14 @@ export class PeopleDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getPeopleDetail = this.dataService.getPeopleDetail(this.id);
     this._peopleDetail = this.getPeopleDetail;
-    this._homeWorldLink = this.getPeopleDetail
-      .pipe(
-        map((data: any) => data.homeworld),
-        switchMap((data: any) => this.dataService.getHomeWorld(data)),
-        map((data: any) => data.name),
-      );
+    this._homeWorldLink = this.getPeopleDetail.pipe(
+      map((data: any) => data.homeworld),
+      switchMap((data: any) => this.dataService.getHomeWorld(data)),
+      map((data: any) => data.name)
+    );
+  }
+
+  public setHeader(): void {
+    this.dataService.isHeader = true;
   }
 }

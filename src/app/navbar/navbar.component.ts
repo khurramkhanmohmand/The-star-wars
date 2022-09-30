@@ -21,19 +21,25 @@ enum LIST {
 export class NavbarComponent implements OnInit {
   public listOfLinks: typeof LIST = LIST;
 
-  constructor(
-    private router: Router,
-    private dataService: DataService,
-  ) { }
+  constructor(private router: Router, private dataService: DataService) {}
 
   public ngOnInit(): void {
     this.router.events
       .pipe(
-        filter(event => event instanceof NavigationEnd),
+        filter((event) => event instanceof NavigationEnd),
         take(1),
         map((data: any) => data.urlAfterRedirects.split('/').pop()),
-        tap(data => this.dataService.isHeader = Object.values(this.listOfLinks).includes(data)),
-        switchMap((data: any) => !Object.values(this.listOfLinks).includes(data) ? of(null) : this.dataService.getList(data))
+        tap(
+          (data) =>
+            (this.dataService.isHeader = Object.values(
+              this.listOfLinks
+            ).includes(data))
+        ),
+        switchMap((data: any) =>
+          !Object.values(this.listOfLinks).includes(data)
+            ? of(null)
+            : this.dataService.getList(data)
+        )
       )
       .subscribe();
   }

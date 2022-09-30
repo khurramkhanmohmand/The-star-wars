@@ -12,5 +12,7 @@
 </div>
 
 <div class="back">
-  <button class="btn-back" [routerLink]="['/people']">Back</button>
+  <button class="btn-back" [routerLink]="['/people']" (click)="setHeader()">
+    Back
+  </button>
 </div>
