@@ -1,0 +1,16 @@
+<div class="main-box">
+  <div class="row" *ngIf="_peopleDetail | async as peopleDetail">
+    <div class="col-md-12">
+      <p><strong>Name:</strong> {{ peopleDetail?.name }}</p>
+      <p><strong>Gender:</strong> {{ peopleDetail?.gender }}</p>
+      <p><strong>Birth Year:</strong> {{ peopleDetail?.birth_year }}</p>
+      <p><strong>Height:</strong> {{ peopleDetail?.height | peopleHeight }}</p>
+      <p><strong>Eyes color:</strong> {{ peopleDetail?.eye_color }}</p>
+      <p><strong>Home world:</strong> {{ _homeWorldLink | async }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="back">
+  <button class="btn-back" [routerLink]="['/people']">Back</button>
+</div>

@@ -1,0 +1,11 @@
+<div class="main-box">
+  <div class="row" *ngIf="peopleList | async">
+    <div class="col-md-12 main" *ngFor="let list of peopleList | async">
+      <p>
+        <span>{{ list.name }}</span> / <span>{{ list.gender }}</span> /
+        <span> {{ list.birth_year }}</span>
+      </p>
+      <a class="link" (click)="navigate(list.url)">More details</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="main-box">
+  <div class="row" *ngIf="moviesList | async">
+    <div class="col-md-12 main" *ngFor="let list of moviesList | async">
+      <p>
+        <span>{{ list.title }}</span> / <span>{{ list.director }}</span> /
+        <span> {{ list.release_date }}</span>
+      </p>
+      <a class="link" (click)="navigate(list.url)">More details</a>
+    </div>
+  </div>
+</div>

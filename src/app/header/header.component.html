@@ -1,0 +1,9 @@
+<div class="topnav">
+  <a *ngFor="let link of seaches" (click)="navigate(link)">{{ link | titlecase }}</a>
+  <div class="search-container">
+    <form>
+      <input #search type="text" placeholder="Search.." name="search" />
+      <button type="button"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>

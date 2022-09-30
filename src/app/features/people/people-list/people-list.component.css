@@ -1,0 +1,9 @@
+::ng-deep.link {
+  margin-left: 50px !important;
+  text-decoration: underline;
+  cursor: pointer;
+  color: blue;
+}
+.main {
+  display: flex;
+}

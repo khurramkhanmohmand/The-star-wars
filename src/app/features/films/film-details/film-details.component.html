@@ -1,0 +1,15 @@
+<div class="main-box">
+  <div class="row" *ngIf="(_filmDetail | async) as filmDetail">
+    <div class="col-md-12">
+      <p><strong>Title:</strong> {{ filmDetail?.title }}</p>
+      <p><strong>Episode:</strong> {{ filmDetail?.episode_id }}</p>
+      <p><strong>Producer:</strong> {{ filmDetail?.producer }}</p>
+      <p><strong>Director:</strong> {{ filmDetail?.director }}</p>
+      <p><strong>Opening crawl:</strong> {{ filmDetail?.opening_crawl }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="back">
+  <button class="btn-back" [routerLink]="['/films']">Back</button>
+</div>
